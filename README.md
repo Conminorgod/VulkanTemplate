@@ -8,6 +8,9 @@ This will serve as a private repository for a Vulkan API template. Currently it 
 Open a terminal in the root project folder
 Type the commands, 
 > mkdir build
+>
 > cd build
+>
 > cmake ..
+>
 > make
