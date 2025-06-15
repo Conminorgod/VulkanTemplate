@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(VulkanGameEngine)
+project(VulkanTemplate)
 
 find_package(Vulkan REQUIRED)
 
@@ -73,10 +73,10 @@ set(SHADER_DIR "${source_dir}/shaders")
 set(SPIRV_OUTPUT_DIR "${CMAKE_BINARY_DIR}/shaders")
 compile_shader(CompileShaders ${SHADER_DIR} ${SPIRV_OUTPUT_DIR})
 
-add_executable(VulkanGameEngine ./src/main.cpp)
-target_link_libraries(VulkanGameEngine 
+add_executable(VulkanTemplate ./src/main.cpp)
+target_link_libraries(VulkanTemplate 
     ${Vulkan_LIBRARIES}
     ${GLFW_LIBRARIES}
 )
 
-add_dependencies(VulkanGameEngine CompileShaders)
+add_dependencies(VulkanTemplate CompileShaders)

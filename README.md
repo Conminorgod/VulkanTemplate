@@ -9,6 +9,7 @@ Ones in question marks are ones I'm not sure about because I haven't tried build
 - CMake
 - Vulkan (?)
 - GLFW (?)
+- Ninja (Windows)
 
 # Build Instructions
 ## Building on Windows
