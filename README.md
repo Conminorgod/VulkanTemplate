@@ -2,7 +2,7 @@ This will serve as a private repository for a Vulkan API template. Currently it 
 
 Currently it only supports Linux I think, I don't know I'd need to test it. If it doesn't, I plan to make it compatible for Windows as well. You could probably do it yourself by editing CMakeLists.txt or CMakePresets.json if you really care about it.
 
-![image](/square.png)
+![image](/spinningSquare.png)
 
 # Requirements
 - CMake
