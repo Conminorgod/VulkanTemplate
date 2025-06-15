@@ -2,10 +2,21 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "default",
-            "description": "Default settings",
+            "name": "linux-default",
+            "description": "Default settings for Linux",
             "hidden": false,
             "generator": "Unix Makefiles",
+            "binaryDir": "${workspaceFolder}/build",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+            }
+        },
+        {
+            "name": "windows-default",
+            "description": "Default settings for Windows",
+            "hidden": false,
+            "generator": "Ninja",
             "binaryDir": "${workspaceFolder}/build",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",

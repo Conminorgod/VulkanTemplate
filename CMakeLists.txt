@@ -1,18 +1,29 @@
 cmake_minimum_required(VERSION 3.10)
-
 project(VulkanGameEngine)
 
 find_package(Vulkan REQUIRED)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(GLFW REQUIRED glfw3)
+if(WIN32)
+    find_package(glfw3 QUIET)
+    if(NOT glfw3_FOUND)
+        set(GLFW_INCLUDE_DIRS "$ENV{GLFW_DIR}/include" CACHE PATH "GLFW include directory")
+        set(GLFW_LIBRARIES "$ENV{GLFW_DIR}/lib/glfw3.lib" CACHE FILEPATH "GLFW library")
+
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+    endif()
+else()
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(GLFW REQUIRED glfw3)
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++17")
+endif()
 
 include_directories(
     ${Vulkan_INCLUDE_DIRS}
     ${GLFW_INCLUDE_DIRS}
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++17")
+
 set(source_dir "${PROJECT_SOURCE_DIR}/src/")
 
 function(compile_shader TARGET_NAME SHADER_DIR OUTPUT_DIR)
